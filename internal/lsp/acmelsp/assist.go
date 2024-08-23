@@ -239,6 +239,7 @@ func (w *outputWin) Update(fw *focusWin, server proxy.Server, cmd string) {
 		log.Fatalf("invalid command %q\n", cmd)
 	}
 	w.Ctl("clean")
+	w.ShowTop()
 }
 
 // Assist creates an acme window where output of cmd is written after each

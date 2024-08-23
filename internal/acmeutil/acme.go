@@ -15,6 +15,16 @@ type Win struct {
 	*acme.Win
 }
 
+func (w *Win) ShowTop() error {
+	if err := w.Addr("#0"); err != nil {
+		return err
+	}
+	if err := w.Ctl("dot=addr"); err != nil {
+		return err
+	}
+	return w.Ctl("show")
+}
+
 func NewWin() (*Win, error) {
 	w, err := acme.New()
 	if err != nil {
